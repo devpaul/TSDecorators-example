@@ -11,6 +11,8 @@ var TASKS = [
     'intern'
 ];
 
+var LcovReporter = { 'id': 'LcovHtml', 'directory': 'html-report' };
+
 function mixin(destination, source) {
     for (var key in source) {
         destination[key] = source[key];
@@ -111,19 +113,19 @@ module.exports = function (grunt) {
             },
             runner: {
                 options: {
-                    reporters: ['runner', 'lcovhtml']
+                    reporters: ['runner', LcovReporter]
                 }
             },
             local: {
                 options: {
                     config: '<%= devDirectory %>/tests/intern-local',
-                    reporters: ['runner', 'lcovhtml']
+                    reporters: ['runner', LcovReporter]
                 }
             },
             client: {
                 options: {
                     runType: 'client',
-                    reporters: ['console', 'lcovhtml']
+                    reporters: ['Console', LcovReporter]
                 }
             },
             proxy: {
@@ -169,9 +171,11 @@ module.exports = function (grunt) {
             options: mixin(
                 compilerOptions,
                 {
-                    experimentalDecorators: true,
+                    emitDecoratorMetadata: true,
+                    experimentalDecorators: true, // this is not supported as of 4.2.0-beta.1
                     failOnTypeErrors: true,
-                    fast: 'never'
+                    fast: 'never',
+                    additionalFlags: '--experimentalDecorators'
                 }
             ),
             dev: {

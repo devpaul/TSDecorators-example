@@ -1,24 +1,31 @@
 {
-    "version": "1.5.0",
-    "compilerOptions": {
-        "declaration": false,
-        "module": "umd",
-        "noImplicitAny": true,
-        "outDir": "_build/",
-        "removeComments": false,
-        "sourceMap": true,
-        "target": "es5",
-        "experimentalDecorators": true
-    },
-    "filesGlob": [
-        "./typings/tsd.d.ts",
-        "./src/**/*.ts",
-        "./tests/**/*.ts"
-    ],
-    "files": [
-        "./src/test.ts",
-        "./tests/intern-local.ts",
-        "./tests/intern.ts",
-        "./tests/unit/all.ts"
-    ]
+	"version": "1.5.0",
+	"compilerOptions": {
+		"declaration": false,
+		"module": "umd",
+		"noImplicitAny": true,
+		"outDir": "_build/",
+		"removeComments": false,
+		"sourceMap": true,
+		"target": "es5",
+		"experimentalDecorators": true
+	},
+	"filesGlob": [
+		"./typings/tsd.d.ts",
+		"./src/**/*.ts",
+		"./tests/**/*.ts",
+		"./node_modules/intern/typings/intern/intern.d.ts"
+	],
+	"files": [
+		"./src/class.ts",
+		"./src/metadata.ts",
+		"./src/method.ts",
+		"./src/parameter.ts",
+		"./src/property.ts",
+		"./tests/intern-local.ts",
+		"./tests/intern.ts",
+		"./tests/unit/all.ts",
+		"./tests/unit/metadata.ts",
+		"./node_modules/intern/typings/intern/intern.d.ts"
+	]
 }
