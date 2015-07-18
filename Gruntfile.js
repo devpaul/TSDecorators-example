@@ -11,8 +11,6 @@ var TASKS = [
     'intern'
 ];
 
-var LcovReporter = { 'id': 'LcovHtml', 'directory': 'html-report' };
-
 function mixin(destination, source) {
     for (var key in source) {
         destination[key] = source[key];
@@ -43,6 +41,7 @@ module.exports = function (grunt) {
         version: packageJson.version,
         tsconfig: tsconfig,
         all: ['<%= tsconfig.filesGlob %>'],
+        precompiled: ['<%= tsconfig.precompiled %>'],
         skipTests: ['<%= all %>', '!tests/**/*.ts'],
         staticTestFiles: 'tests/**/*.{html,css}',
         devDirectory: '<%= tsconfig.compilerOptions.outDir %>',
@@ -79,6 +78,13 @@ module.exports = function (grunt) {
                 src: ['README.md', 'LICENSE', 'package.json', 'bower.json'],
                 dest: 'dist/'
             },
+            precompiledLibraries: {
+                expand: true,
+                flatten: true,
+                cwd: '.',
+                src: ['<%= precompiled %>'],
+                dest: '<%= devDirectory %>/lib'
+            },
             staticTestFiles: {
                 expand: true,
                 cwd: '.',
@@ -113,19 +119,19 @@ module.exports = function (grunt) {
             },
             runner: {
                 options: {
-                    reporters: ['runner', LcovReporter]
+                    reporters: ['runner']
                 }
             },
             local: {
                 options: {
                     config: '<%= devDirectory %>/tests/intern-local',
-                    reporters: ['runner', LcovReporter]
+                    reporters: ['runner']
                 }
             },
             client: {
                 options: {
                     runType: 'client',
-                    reporters: ['Console', LcovReporter]
+                    reporters: ['Console']
                 }
             },
             proxy: {
@@ -275,6 +281,7 @@ module.exports = function (grunt) {
     grunt.registerTask('dev', [
         'ts:dev',
         'copy:staticTestFiles',
+        'copy:precompiledLibraries',
         'replace:addIstanbulIgnore',
         'updateTsconfig'
     ]);

@@ -9,3 +9,5 @@ export var tunnelOptions = {
 export var environments = [
 	{ browserName: 'chrome' }
 ];
+
+export var excludeInstrumentation = /./;
