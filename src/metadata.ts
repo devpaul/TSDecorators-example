@@ -1,16 +1,15 @@
-/// <reference path="../node_modules/reflect-metadata/reflect-metadata.d.ts" />
-import 'lib/Reflect';
+import 'reflect';
 
 function MetadataAwareMethodDecorator<T>(target: Function, key: string, descriptor: TypedPropertyDescriptor<T>): TypedPropertyDescriptor<T> | void {
     var global = (function() { return this; })();
     var hasReflect = global.hasOwnProperty('Reflect');
     console.log('has reflect: ' + hasReflect);
 
-    // TODO this doesn't work:
+    // TODO this doesn't work here:
     // Reflect.defineMetadata('key2', 'value2', C.prototype, 'method');
     //
     // this does not work because C.prototype isn't available
-    // So... the ES6 spec says that classes are not hoisted
+    // So... the ES6 spec says that class definitions (unlike functions) are not hoisted
     // What's happening here is C is created inside an iife and decoration is performed by calling through
     // decorators ultimately using Object.defineProperty:
     //

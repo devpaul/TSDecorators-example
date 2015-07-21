@@ -16,9 +16,6 @@
 		"./node_modules/intern/typings/**/*.d.ts",
 		"./node_modules/reflect-metadata/reflect-metadata.d.ts"
 	],
-	"precompiled": [
-		"./node_modules/reflect-metadata/Reflect.js"
-	],
 	"files": [
 		"./src/class.ts",
 		"./src/metadata.ts",
@@ -27,9 +24,9 @@
 		"./src/property.ts",
 		"./tests/intern-local.ts",
 		"./tests/intern.ts",
+		"./tests/typings/sinon/sinon.d.ts",
 		"./tests/unit/all.ts",
-		"./tests/unit/class.ts",
-		"./tests/unit/metadata.ts",
+		"./tests/unit/method.ts",
 		"./node_modules/intern/typings/chai/chai.d.ts",
 		"./node_modules/intern/typings/digdug/digdug.d.ts",
 		"./node_modules/intern/typings/dojo2/dojo.d.ts",

@@ -14,6 +14,16 @@ Thanks!
 * `grunt test-proxy`
 * open [http://localhost:9000/node_modules/intern/client.html?config=_build/tests/intern-local](http://localhost:9000/node_modules/intern/client.html?config=_build/tests/intern-local)
 
+## A Quick Tour
+
+### /src
+
+This folder has example usage and some explanation surrounding the various descriptors and metdata
+ 
+### /tests/unit
+
+This folder has some unit tests illustrating how the different descriptors behave
+
 ## Notes
 As of version 4.2.0.beta1 `grunt-ts` doesn't yet have support for the experimentalDecorators flag
 [issue #259](https://github.com/TypeStrong/grunt-ts/issues/259). We work around this by declaring

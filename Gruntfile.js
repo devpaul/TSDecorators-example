@@ -41,7 +41,6 @@ module.exports = function (grunt) {
         version: packageJson.version,
         tsconfig: tsconfig,
         all: ['<%= tsconfig.filesGlob %>'],
-        precompiled: ['<%= tsconfig.precompiled %>'],
         skipTests: ['<%= all %>', '!tests/**/*.ts'],
         staticTestFiles: 'tests/**/*.{html,css}',
         devDirectory: '<%= tsconfig.compilerOptions.outDir %>',
@@ -77,13 +76,6 @@ module.exports = function (grunt) {
                 cwd: '.',
                 src: ['README.md', 'LICENSE', 'package.json', 'bower.json'],
                 dest: 'dist/'
-            },
-            precompiledLibraries: {
-                expand: true,
-                flatten: true,
-                cwd: '.',
-                src: ['<%= precompiled %>'],
-                dest: '<%= devDirectory %>/lib'
             },
             staticTestFiles: {
                 expand: true,
@@ -153,23 +145,6 @@ module.exports = function (grunt) {
         rewriteSourceMaps: {
             dist: {
                 src: ['dist/_debug/**/*.js.map']
-            }
-        },
-
-        replace: {
-            addIstanbulIgnore: {
-                src: ['<%= devDirectory %>/**/*.js'],
-                overwrite: true,
-                replacements: [
-                    {
-                        from: /^(var __(?:extends|decorate) = )/gm,
-                        to: '$1<%= istanbulIgnoreNext %> '
-                    },
-                    {
-                        from: /^(\()(function \(deps, )/m,
-                        to: '$1<%= istanbulIgnoreNext %> $2'
-                    }
-                ]
             }
         },
 
@@ -281,8 +256,6 @@ module.exports = function (grunt) {
     grunt.registerTask('dev', [
         'ts:dev',
         'copy:staticTestFiles',
-        'copy:precompiledLibraries',
-        'replace:addIstanbulIgnore',
         'updateTsconfig'
     ]);
     grunt.registerTask('dist', [
