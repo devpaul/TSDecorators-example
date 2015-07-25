@@ -32,6 +32,7 @@
 		"./tests/unit/all.ts",
 		"./tests/unit/metadata.ts",
 		"./tests/unit/method.ts",
+		"./tests/unit/order.ts",
 		"./node_modules/intern/typings/chai/chai.d.ts",
 		"./node_modules/intern/typings/digdug/digdug.d.ts",
 		"./node_modules/intern/typings/dojo2/dojo.d.ts",

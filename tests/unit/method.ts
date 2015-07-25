@@ -1,15 +1,14 @@
-import bdd = require('intern!bdd');
+import { describe, it, beforeEach } from 'intern!bdd';
 import expect = require('intern/chai!expect');
 import sinon = require('sinon');
-let { describe, it, beforeEach } = bdd;
 
-let stubMap: {
+const stubMap: {
     [ key: string ]: Sinon.SinonSpy
 } = { };
 
 // Create a decorator on the fly that will change the method descriptor with a Sinon stub
 // and hold it in stubMap for easy access
-let decorator = sinon.spy(function (target: Function, key: string, descriptor: any): any {
+const decorator = sinon.spy(function (target: Function, key: string, descriptor: any): any {
     descriptor.value = stubMap[key] = sinon.stub();
     return descriptor
 });
