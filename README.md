@@ -39,9 +39,9 @@ More information about how TypeScript leverages it is here:
 
 * `grunt lint` - validates style rules
 * `grunt test` - runs intern's node client
-* `grunt test-local` - runs intern's runner with local configuration
+* `grunt test-local` - runs intern's runner with local configuration (Selenium required)
 * `grunt test-proxy` - starts intern's testing proxy
-* `grunt test-runner` - runs intern's runner
+* `grunt test-runner` - runs intern's runner (BrowserStack/SauceLabs required)
 * `grunt ci` - runs tests in a continuous integration environment
 * `grunt clean` - cleans development work
 * `grunt` - compiles files

@@ -1,4 +1,3 @@
-/// <reference path="../typings/sinon/sinon.d.ts" />
 import bdd = require('intern!bdd');
 import expect = require('intern/chai!expect');
 import sinon = require('sinon');

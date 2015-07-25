@@ -52,7 +52,7 @@ export var loaderOptions = {
 		{ name: 'src', location: '_build/src' },
 		{ name: 'tests', location: '_build/tests' },
         { name: 'sinon', location: 'node_modules/sinon/pkg', main: 'sinon' },
-        { name: 'reflect', location: 'node_modules/reflect-metadata', main: 'Reflect' }
+        { name: 'reflect-metadata', location: 'node_modules/reflect-metadata', main: 'Reflect' }
 	]
 };
 
