@@ -2,3 +2,4 @@
 import './method';
 import './metadata';
 import './order';
+import './mixin';
