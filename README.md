@@ -16,13 +16,19 @@ Thanks!
 
 ## A Quick Tour
 
-### /src
+### /src/examples
 
-This folder has example usage and some explanation surrounding the various descriptors and metdata
- 
+This directory has example usage and comments about decorators and metadata. Examples show how to use the four different
+decorators (class, method, parameter, and property), decorator factories used when parameters are passed in a
+decorator, and custom metadata usage.
+
+### /src/patterns
+
+Includes examples of using decorators to facilitate mixins and dependency injection
+
 ### /tests/unit
 
-This folder has some unit tests illustrating how the different descriptors behave
+This directory has some unit tests illustrating how the different descriptors behave
 
 ## Notes
 As of version 4.2.0.beta1 `grunt-ts` doesn't yet have support for the experimentalDecorators flag

@@ -19,5 +19,6 @@ describe('inject', function () {
         var instance: D = inject<D>(D);
         expect(instance).to.have.property('thing');
         expect(instance.thing).to.be.an.instanceOf(C);
+        expect(instance).to.be.an.instanceOf(D);
     });
 });
